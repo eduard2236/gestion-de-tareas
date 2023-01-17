@@ -22,15 +22,29 @@
 
 {# trabajar con bucles  #}
 {% if animales|length >= 0 %}
+  <ul>
     {% for animal in animales %}
-        <h2>{{animal}}  </h2>
+        <li>{{animal}}  </li>
     {% endfor %}
+</ul>
 {% endif %}
 
 
- {% for numeros in 0..10 %}
-        <h2>{{numeros}}  </h2>
+ <ul>
+    {% for n in 0..10 %}
+        <li>{{n}}  </li>
     {% endfor %}
+</ul>
+{# se puede trabajar con condicionales starts y end #}
+{% if aves.color starts with 'g' %}
+    <h3> empieza por g </h3>
+{% endif %}
+<hr>
+
+{{ include('partials/funciones.html.twig' , {'nombre' : 'eduard colmenares'})}}
+
+
+
 
 {% endblock %}
 

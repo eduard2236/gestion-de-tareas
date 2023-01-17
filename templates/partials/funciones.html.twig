@@ -1,0 +1,28 @@
+{# funciones twig#}
+<h2> funciones </h2>
+<p> minimo y maximo</p>
+{{ min([1,96,58,25,32,2])}}
+{{ max([1,96,58,25,32,2])}}
+
+<br>
+<p> random</p>
+{{ random(animales)}}
+<br>
+{# range o rango el primer parametro define inicio del conteo, el segundo el final y el tercero los intervalos #}
+<p> range o rango</p>
+{% for i in range(0,10, 2)%}
+    {{i}}
+{% endfor %}
+
+{{nombre}}
+<p> filtros </p>
+
+{{ animales|length}}
+
+{% set email = ' eduardcolmenares@gmail.com  ' %}
+
+{{ email|upper|trim}}
+
+{{ multiplicar(2)|raw}}
+
+{{ 12|multiplicar|raw}}
