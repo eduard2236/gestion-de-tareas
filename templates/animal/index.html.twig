@@ -12,13 +12,9 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
 
    {% for animal in animales %}
-        <ul>
-         <li> {{animal.id}} </li> 
-         <li> {{animal.tipo}} </li> 
-         <li> {{animal.color}} </li> 
-         <li> {{animal.raza}} </li> 
-        <hr>
-        <ul>
+        <ul>   
+         <li> {{animal.tipo}} </li>      
+        </ul>
    {% endfor %}
 </div>
 {% endblock %}

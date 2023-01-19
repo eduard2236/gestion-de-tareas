@@ -25,3 +25,11 @@ animal_save:
 animal_accion:
     path: /animal/{id}
     controller: App\Controller\AnimalController::animal
+
+animal_update:
+    path: /animal/update/{id}
+    controller: App\Controller\AnimalController::update
+
+animal_delete:
+    path: /animal/delete/{id}
+    controller: App\Controller\AnimalController::delete
