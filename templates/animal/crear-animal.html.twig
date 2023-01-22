@@ -1,8 +1,0 @@
-<h1> Formulario de crear animal symphony 5</h1>
-{% for message in app.session.flashbag().get('message') %}
-    {{ message }}
-{% endfor %}
-
-{{form_start(form)}}
-{{form_widget(form)}}
-{{form_end(form)}}
