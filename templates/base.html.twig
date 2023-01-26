@@ -7,6 +7,7 @@
         <!--hojas de estilo -->
         {% block stylesheets %}
             <link href= {{ asset("assets/CSS/style.css")}}  type"text/css" rel="stylesheet">
+            <link href= {{ asset("assets/iconmoon/iconos.css")}}  type"text/css" rel="stylesheet">
         {% endblock %}
         {# javascript #}
         {% block javascripts %}
@@ -18,11 +19,19 @@
           
           <nav id="nav">
           <h1>Tareas Symfony</h1>
+          {% if app.user %}
+          <p>{{ app.user.name ~ ' '~ app.user.username }} <a href="{{ path('logout') }}">Cerrar sesion</a></p>
+          {% endif %}
             <ul id="menu">
-                <li><a href="{{ path('tasks')}}">Inicio</a></li>
-                <li><a href="">Mis tareas</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="{{ path('register')}}">Registros</a></li>
+                
+                {% if app.user %}
+                    <li><a href="{{ path('tasks') }}">Inicio</a></li>
+                    <li><a href="">Mis tareas</a></li>
+                    <li><a href="{{path('task_creation')}}">Crear tarea</a></li>
+                {% else %}   
+                <li><a href="{{ path('login') }}">Login</a></li>
+                <li><a href="{{ path('register') }}">Registros</a></li>
+                 {% endif %}
             </ul>
           </nav> 
         {% endblock %}

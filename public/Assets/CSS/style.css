@@ -9,6 +9,13 @@ body {
     width: 95%;
     font: 18px/1.5 sans-serif;
 }
+
+.main{
+    margin: 1em auto;
+    max-width: 800px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+}
 #menu{
     display: grid;
     grid-auto-flow: column;
@@ -23,6 +30,10 @@ body {
 }
 #menu li{
     padding: 5px;
+}
+#nav > p{
+    text-align: right;
+    font-size: 0.9em;
 }
 #menu a{
     text-decoration: none;
@@ -65,4 +76,46 @@ input[tyoe="submit"]:hover {
     background: #07ef4d;
     color: white;
 
+}
+
+/* tabla */
+table{
+    width: 100%;
+}
+table th,table td{
+    text-align: center;
+}
+
+table th
+{
+    background: #efefef;
+    padding: 11px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-bottom: 1px solid rgb(166, 159, 159);
+    border-radius: 10px 10px 0 0;
+    
+}
+table td{
+    border: 1px  gray;
+    background: #afeec2;
+}
+/* iconos */
+
+table td a{
+    text-decoration: none;
+  
+    font-size: 1.2em;
+}
+table td a:not(:last-child){
+    padding-right: 15px;
+}
+table td a .icon-eye{
+    color: rgb(21, 21, 12);
+}
+table td a .icon-pencil{
+    color: rgb(33, 152, 160);
+}
+table td a .icon-bin2{
+    color: rgb(206, 5, 5);
 }
