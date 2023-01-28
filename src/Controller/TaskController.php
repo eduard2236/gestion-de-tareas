@@ -73,4 +73,56 @@ class TaskController extends AbstractController
             'form'=> $form->createView()
         ]);
     }
+
+    public function myTasks(UserInterface $user ){
+        $task = $user->getTasks();
+
+        return $this->render('task/my-tasks.html.twig' , [
+            'tasks' => $task
+        ]);
+    }
+
+    public function edit(Request $request,UserInterface $user , Task $task){
+        if(!$user || $user->getId() != $task->getUser()->getId()){
+            return $this->redirectToRoute('tasks');
+        }
+
+        $form = $this->createForm(TaskType::class, $task);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            //$task->setCreatedAt(new \DateTime('now'));
+            //$task->setUser($user);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($task);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('task_detail',['id' => $task->getId()]));
+        }
+
+        return $this->render('task/creation.html.twig', [
+            'edit' => true,
+            'form' => $form->createView()
+        ]);
+    }
+
+    public function delete(UserInterface $user, Task $task){
+
+        if(!$user || $user->getId() != $task->getUser()->getId()){
+            return $this->redirectToRoute('tasks');
+        }
+
+        if(!$task){
+            return $this->redirectToRoute('tasks');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($task);
+        $em->flush();
+
+        return $this->redirectToRoute('tasks');
+    }
+
+
 }

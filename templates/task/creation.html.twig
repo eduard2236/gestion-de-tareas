@@ -1,12 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}todas las tareas{% endblock %}
+{% block title %}
+    {% if edit is defined %}
+    Editar Tarea
+    {% else %}
+    Crear tarea
+    {% endif %}
+{% endblock %}
 
 {% block body %}
 
-
 <div class="main">
-    <h2>Crear Tarea</h2>
+
+    <h2>
+    {% if edit is defined %}
+    Editar Tarea
+    {% else %}
+    Crear tarea
+    {% endif %}
+    </h2>
      {{ form_start(form) }}
      {{ form_widget(form) }}
      {{ form_end(form) }}

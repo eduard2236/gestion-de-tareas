@@ -1,0 +1,23 @@
+<table>
+        <tr>
+            <th>Tareas</th>
+            <th>Prioridad</th>
+            <th>Horas presupuestadas</th>
+            <th>Acciones</th>
+        </tr>
+         
+        {% for task in tasks %}
+        <tr>
+           <td> {{ task.tittle }} </td>
+           <td> {{ task.priority }} </td>
+           <td> {{ task.hours }} </td>
+           <td><a href="{{ path('task_detail',{'id':task.id})}}" ><span class="icon-eye"></span></a>
+               
+                {% if  task.user.id == app.user.id %}
+               <a href="{{ path('task_edit',{'id':task.id})}}" ><span class="icon-pencil"></span></a>
+               <a href="{{ path('task_delete',{'id':task.id})}}" ><span class="icon-bin2"></span></a> </td>
+                {% endif %}
+        </tr>
+        {% endfor %}
+       
+    </table>
